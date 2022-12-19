@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&family=Neucha&family=Ubuntu:wght@300&display=swap');
+
+.App {
+    width: 100vw;
+    height: 100vh;
+    font-family: "Fugaz One", cursive;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: rgb(30, 134, 30);
+}
+
+.heading {
+    color: white;
+    text-align: center;
+    font-size: 45px;
+    margin: 25px 0;
+    z-index: 1;
+}
+
+@media (max-witdh: 900px) {
+    .heading {
+        font-size: 30px;
+        margin: 20px;
+    }
+}

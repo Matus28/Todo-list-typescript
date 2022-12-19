@@ -1,10 +1,14 @@
+'use strict'
+
 import React from 'react';
 import './App.css';
+import TaskInput from './components/TaskInput';
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="App">
-      Hello World!
+      <span className="heading">Todo list</span>
+      <TaskInput />
     </div>
   );
 }
