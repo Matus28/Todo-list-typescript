@@ -1,22 +1,29 @@
 "use strict";
 
-import React, { ChangeEvent } from "react";
+import React, { ChangeEvent, useState } from "react";
 
 import "./TaskInput.css";
 
 interface Props {
-  todo: string;
-  setEnteredValue: (enteredText: string) => void;
+  handleAdd: (enteredText: string) => void;
 }
 
-// const TaskInput: React.FC<Props> = ({todo, setTodo}) => {
-const TaskInput = ({ todo, setEnteredValue }: Props) => {
+// ==> Another option to define type
+// const TaskInput: React.FC<Props> = ({todo, setEnteredValue}) => {
+const TaskInput = ({ handleAdd }: Props) => {
+  const [todo, setTodo] = useState<string>("");
+
   const todoInputChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    setEnteredValue(e.target.value);
+    setTodo(e.target.value);
+  };
+
+  const submitHandler = (e: React.FormEvent) => {
+    e.preventDefault();
+    handleAdd(todo);
   };
 
   return (
-    <form className="task-input">
+    <form className="task-input" onSubmit={submitHandler}>
       <input
         type="text"
         placeholder="Enter a new task"

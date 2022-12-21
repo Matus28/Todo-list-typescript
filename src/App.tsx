@@ -3,18 +3,27 @@
 import React, { useState } from "react";
 import "./App.css";
 import TaskInput from "./components/TaskInput";
+import { Todo } from "./model";
 
 const App: React.FC = () => {
-  const [todo, setTodo] = useState<string>("");
+  const [todos, setTodos] = useState<Todo[]>([]);
 
   const addTodoHandler = (enteredText: string) => {
-    setTodo(enteredText);
-    console.log(enteredText);
+    const values: Todo = {
+      id: 0,
+      todo: enteredText,
+      isDone: false,
+    };
+
+    setTodos([...todos, values]);
   };
+
+  console.log(todos);
+
   return (
     <div className="App">
       <span className="heading">Todo list</span>
-      <TaskInput todo={todo} setEnteredValue={addTodoHandler} />
+      <TaskInput handleAdd={addTodoHandler} />
     </div>
   );
 };
