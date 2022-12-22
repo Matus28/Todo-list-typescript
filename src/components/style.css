@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&family=Neucha&family=Ubuntu:wght@300&display=swap');
+
 .task-input {
   width: 90%;
   display: flex;
@@ -43,5 +45,52 @@
 .task-input__submit:active {
   transform: scale(0.8);
   box-shadow: 0 0 2px black;
+}
 
+.todo-list {
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.todos-item {
+  width: 30%;
+  display: flex;
+  flex-flow: row wrap;
+  margin: 10px;
+  padding: 18px;
+  background-color: rgb(224, 224, 9);
+  border-radius: 5px;
+}
+
+.todos-item__text {
+  font-family: "Neucha", cursive;
+  font-size: 16px;
+  flex: 1;
+  border: none;
+  padding: 5px;
+} 
+
+.todos-item__text:focus {
+  outline: none;
+}
+
+.icon {
+  margin-left: 10px;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+/* == Media setting for mobile device ==*/
+@media (max-width: 700px) {
+  .task-input {
+    width: 95%;
+  }
+  .todo-list {
+    width: 95%;
+  }
+  .todos-item {
+    width: 95%;
+  }    
 }

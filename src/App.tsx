@@ -3,19 +3,20 @@
 import React, { useState } from "react";
 import "./App.css";
 import TaskInput from "./components/TaskInput";
+import TodoList from "./components/TodoList";
 import { Todo } from "./model";
 
 const App: React.FC = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
 
   const addTodoHandler = (enteredText: string) => {
-    const values: Todo = {
-      id: 0,
+    const currentTodo: Todo = {
+      id: Date.now(),
       todo: enteredText,
       isDone: false,
     };
 
-    setTodos([...todos, values]);
+    setTodos([...todos, currentTodo]);
   };
 
   console.log(todos);
@@ -24,6 +25,7 @@ const App: React.FC = () => {
     <div className="App">
       <span className="heading">Todo list</span>
       <TaskInput handleAdd={addTodoHandler} />
+      <TodoList todos={todos} setTodos={setTodos} />
     </div>
   );
 };
